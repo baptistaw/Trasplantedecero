@@ -1,0 +1,53 @@
+<div class="container">
+  <ul class="list-inline">
+    <li>
+      <h2>
+        <p class="text-left">Paciente: </p>
+      </h2>
+    </li>
+    <li>
+      <h1>
+        <p class="text-right"><%= @patient.nombre %> <%= @patient.apellido %></p>
+      </h1>
+    </li>
+  </ul>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>CI</th>
+      <th>Fecha Nacimiento</th>
+      <th>Sexo</th>
+      <th>Prestador</th>
+      <th>Procedencia</th>
+      <th>Fecha Ingreso</th>
+      <th>Fnr</th>
+      <th>Comentarios</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @patient.ci %></td>
+        <td><%= @patient.f_nacimiento %></td>
+        <td><%= @patient.sexo %></td>
+        <td><%= @patient.prestador %></td>
+        <td><%= @patient.procedencia %></td>
+        <td><%= @patient.f_ingreso %></td>
+        <td><%= @patient.fnr %></td>
+        <td><%= truncate(strip_tags(@patient.comentarios), :length => 50) %></td>
+      </tr>
+    </tbody>
+  </table>
+
+	<%= link_to "Atras", root_path, class: 'btn btn-info' %>
+
+	<% if user_signed_in? %>
+
+		<% if @patient.user_id == current_user.id %>
+			
+			<%= link_to "Editar", edit_patient_path(@patient), class: 'btn btn-warning' %>
+			<%= link_to "Eliminar", patient_path(@patient), method: :delete, data: {confirm: "Esta seguro?"}, class: 'btn btn-danger' %>
+		<% end %>
+	<% end %>
+</div>

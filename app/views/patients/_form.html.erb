@@ -1,0 +1,76 @@
+
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+    <table class="table">
+      <tbody>
+      <tr>
+        
+        <td>
+          <div>
+            Nombre
+            <%= f.text_field(:nombre, class: "form-control", placeholder: "Nombre") %>
+          </div>
+          <div>
+            Apellido
+            <%= f.text_field(:apellido, class: "form-control", placeholder: "Apellido") %>
+          </div>
+          <div>
+            C.I.
+            <%= f.text_field(:ci, class: "form-control", placeholder: "C.I.") %>
+          </div>
+          <div>
+            FNR
+            <%= f.text_field(:fnr, class: "form-control", placeholder: "FNR") %>
+          </div>
+        </td>
+        
+        <td>
+          <div>
+            Sexo
+            <%= f.select(:sexo, options_for_select(['Masculino','Femenino']), {}, {class: "form-control"}) %></div>
+          </div>
+          <div>
+            Fecha Nacimiento
+            <%= f.date_select(:f_nacimiento, class: "form-control", placeholder: "Fecha Nacimiento") %>
+          </div>
+          <div>
+            Fecha Ingreso
+            <%= f.date_select(:f_ingreso, class: "form-control", placeholder: "Fecha Ingreso") %>
+          </div>
+          <div>
+            Prestador
+            <%= f.text_field(:prestador, class: "form-control", placeholder: "Prestador") %>
+          </div>
+        </td>
+        
+        <td>
+          <div>
+            Procedencia
+            <%= f.text_field(:procedencia, class: "form-control", placeholder: "Procedencia") %>
+          </div>
+      		<div>
+            Comentarios
+            <%= f.text_area(:comentarios, class: "form-control", placeholder: "Comentarios") %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+  	</tbody>
+   </table>
+  <div>
+    <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+    <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
+

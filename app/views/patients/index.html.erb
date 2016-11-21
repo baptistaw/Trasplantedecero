@@ -1,0 +1,32 @@
+
+<div class="container">
+<h2>Pacientes Ingresados al Sistema</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Apellido</th>
+      <th>Nombre</th>
+      <th>CI</th>
+      <th>Sexo</th>
+      <th>Fecha Nacimiento</th>
+      <th>Procedencia</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= link_to patient.apellido, patient%></td>
+        <td><%= link_to patient.nombre, patient%></td>
+        <td><%= patient.ci %></td>
+        <td><%= patient.sexo %></td>
+        <td><%= patient.f_nacimiento%></td>
+        <td><%= patient.procedencia%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
