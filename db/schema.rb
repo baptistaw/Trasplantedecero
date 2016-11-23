@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121034837) do
+ActiveRecord::Schema.define(version: 20161121150935) do
+
+  create_table "corevaluations", force: :cascade do |t|
+    t.string   "causa_hepatopatia"
+    t.integer  "peso"
+    t.integer  "talla"
+    t.integer  "pxif"
+    t.integer  "meld"
+    t.integer  "melde"
+    t.string   "child"
+    t.string   "asa"
+    t.text     "maximos_riesgos"
+    t.boolean  "ingresa_lista"
+    t.text     "causa_no_ingreso"
+    t.text     "estudios_pendientes"
+    t.boolean  "candidato_fastrack"
+    t.boolean  "candidato_tranexamico"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "user_id"
+    t.integer  "patient_id"
+  end
 
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

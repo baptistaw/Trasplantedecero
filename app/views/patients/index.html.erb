@@ -11,6 +11,7 @@
       <th>Sexo</th>
       <th>Fecha Nacimiento</th>
       <th>Procedencia</th>
+      <th>Anestesista</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -25,6 +26,8 @@
         <td><%= patient.sexo %></td>
         <td><%= patient.f_nacimiento%></td>
         <td><%= patient.procedencia%></td>
+        <td><%= patient.user_id%></td>
+        
       </tr>
     <% end %>
   </tbody>

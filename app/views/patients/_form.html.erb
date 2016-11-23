@@ -1,4 +1,4 @@
-
+<div class="container">
 <%= form_for(@patient) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
@@ -73,4 +73,5 @@
     <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
   </div>
 <% end %>
+</div>
 
