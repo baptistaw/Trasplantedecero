@@ -1,0 +1,40 @@
+<div class="parallax-container">
+    <div class="parallax"><img src="images/Parallax1.jpg"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <h1 class="header">Sistema de Trasplante Hepático </h1>
+      <p class="grey-text text-darken-3 lighten-3"> 
+        <% if user_signed_in? %>
+        <p>Bienvenido <%= current_user.email%> </p>
+        <%= link_to "Acceder a la Base de Datos", patients_path %>
+      
+      <%else%>
+      
+        <p> Bienvenido <%= link_to "Iniciar sesion", new_user_session_path %> </p>
+    
+      <<% end -%>
+      
+      <div>
+        </h3> Base de Datos de Anestesia para Trasplante Hepático </h3>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/Parallax2.jpg"></div>
+  </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<script>
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+</script>
+<script>
+.parallax-container{
+  heigth: "400";
+}
+</script>
+

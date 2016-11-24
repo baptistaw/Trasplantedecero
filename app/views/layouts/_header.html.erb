@@ -1,0 +1,34 @@
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Ocultar menú</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Sistema Trasplante", root_path, class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to current_user.email, destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Log In", new_user_session_path %></li>
+            <% end %>
+             <% if user_signed_in? %>
+              <li><%= link_to "Paciente Nuevo", new_patient_path %></li>
+            <% end %>
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+

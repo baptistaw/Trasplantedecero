@@ -6,14 +6,15 @@
       </h2>
     </li>
     <li>
-      <h1>
+      <h3>
         <p class="text-right"><%= @patient.nombre %> <%= @patient.apellido %></p>
-      </h1>
+      </h3>
      <li>
        Ingresado por <%= @patient.user_id %>
+
     </li>
   </ul>
-  <table class="table">
+  <table class="responsive-table">
     <thead>
     <tr>
       <th>CI</th>
@@ -42,7 +43,7 @@
     </tbody>
   </table>
 
-	<table>
+	<table class="responsive-table">
 		<tbody>
 				<tr>
 				   <td><%= @patient.comentarios %></td>
@@ -53,9 +54,7 @@
 
 </div class="row">
 
-  <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
-  <%= link_to "Atras", root_path, class: 'btn btn-info' %>
-
+ 
   <% if user_signed_in? %>
 
     <% if @patient.user_id == current_user.id %>
@@ -66,9 +65,41 @@
   <% end %>
 </div>
 
-	<div class="row">
-		
-		<%= render @patient.corevaluations %>
-  </div>
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Datos Generales</div>
+      <div class="collapsible-body">
+       <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
+         <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+          <%= render @patient.corevaluations %></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>xxxx</div>
+      <div class="collapsible-body"><p>texto</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>xxxxx</div>
+      <div class="collapsible-body"><p>texto</p></div>
+    </li>
+  </ul>
+
+<script>
+ $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
+<script>
+  $('.collapsible').collapsible({
+      accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+      onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+    }
+</script>
+
+  );
+        
+        
+
 
 

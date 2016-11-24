@@ -1,81 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Trasplantedecero</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title><%= full_title(yield(:title)) %></title>
+        
+        
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 
+        <%= render 'layouts/shim' %>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Ocultar navegación</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Trasplante", root_path, class:"navbar-brand"%>
+    </head>
 
-    </div>
+    <body>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-	      		<% if user_signed_in? %>
-	      			<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-	      			</li>
-	      			<li><%= link_to current_user.email, destroy_user_session_path, method: :delete %>
-	      			</li>
-	      		<% else %>
-	      			<li><%= link_to "Log In", new_user_session_path %>
-	      			</li>
+        <%= render 'layouts/header' %>
 
-	      		<% end %>
-	      		 <ul class="nav navbar-nav navbar-right">
-		      	<% if user_signed_in? %>
-		      		<li><%= link_to "Paciente Nuevo", new_patient_path %></li>
-		      	<% end %>
-      </ul>
-		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicio de Anestesiología <span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">Staff</a></li>
-		            <li><a href="#">Blog</a></li>
-		            <li><a href="#">Contacto</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Protocolos del Servicio</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Sobre Nosotros</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Ayuda</a></li>
-	    		</ul>
-        	</li>
-      </ul>
-     
+        <div class="container">
+            <p class="notice"><%=notice %><p>
+            <p class="alert"><%=alert %><p>
 
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+            <%= yield %>
+
         </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
-      </form>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+
+         <%= render 'layouts/footer' %>
+    
+    </body>
 
 
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-
-<%= yield %>
-
-</body>
 </html>

@@ -1,67 +1,73 @@
-<div class="container">
-<%= form_for ([@patient, @patient.corevaluations.build]) do |f| %>
-  
-    
-  <div class="field">
-  Causa de la Hepatopatía
-   <%= f.text_field :causa_hepatopatia %>
-  </div>
-  <div class="field">
-  Peso actual
-    <%= f.number_field :peso %>
-  </div>
-  <div class="field">
-  Talla
-    <%= f.number_field :talla %>
-  </div>
-  <div class="field">
-  Pxif
-    <%= f.number_field :pxif %>
-  </div>
-  <div class="field">
-  MELD
-    <%= f.number_field :meld %>
-  </div>
-  <div class="field">
-  MELDE
-    <%= f.number_field :melde %>
-  </div>
-  <div class="field">
-  CHILD
-      <%= f.select(:child, options_for_select(['A','B', 'C']), {}, {class: "form-control"}) %></div>
-  </div>
-  <div class="field">
-  ASA 
-     <%= f.select(:asa, options_for_select(['I','II', 'III', 'IV']), {}, {class: "form-control"}) %></div>
-  </div>
-  <div class="field">
-  Máximos riesgos
-    <%= f.text_area :maximos_riesgos %>
-  </div>
-  <div class="field">
-  Ingresa a lista de Trasplante?
-    <%= f.check_box :ingresa_lista %>
-  </div>
-  <div class="field">
-  Causa de no ingreso
-    <%= f.text_field :causa_no_ingreso %>
-  </div>
-  <div class="field">
-  Estudios pendientes para el ingreso
-    <%= f.text_area :estudios_pendientes %>
-  </div>
-  <div class="field">
-  Candidato a Fastrack?
-    <%= f.check_box :candidato_fastrack %>
-  </div>
-  <div class="field">
-  Candidato a Protocolo de Tranexamico?
-    <%= f.check_box :candidato_tranexamico %>
-  </div>
-  <div>
-    <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
-    <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
-  </div>
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+            <%= form_for ([@patient, @patient.corevaluations.build]) do |f| %>
+              
+                
+              <div class="field">
+              Causa de la Hepatopatía
+               <%= f.text_field :causa_hepatopatia %>
+              </div>
+              <div class="field">
+              Peso actual
+                <%= f.number_field :peso %>
+              </div>
+              <div class="field">
+              Talla
+                <%= f.number_field :talla %>
+              </div>
+              <div class="field">
+              Pxif
+                <%= f.number_field :pxif %>
+              </div>
+              <div class="field">
+              MELD
+                <%= f.number_field :meld %>
+              </div>
+              <div class="field">
+              MELDE
+                <%= f.number_field :melde %>
+              </div>
+              <div class="field">
+              CHILD
+                  <%= f.select(:child, options_for_select(['A','B', 'C']), {}, {class: "form-control"}) %></div>
+              </div>
+              <div class="field">
+              ASA 
+                 <%= f.select(:asa, options_for_select(['I','II', 'III', 'IV']), {}, {class: "form-control"}) %></div>
+              </div>
+              <div class="field">
+              Máximos riesgos
+                <%= f.text_area :maximos_riesgos %>
+              </div>
+              <div class="field">
+              Ingresa a lista de Trasplante?
+                <%= f.check_box :ingresa_lista %>
+              </div>
+              <div class="field">
+              Causa de no ingreso
+                <%= f.text_field :causa_no_ingreso %>
+              </div>
+              <div class="field">
+              Estudios pendientes para el ingreso
+                <%= f.text_area :estudios_pendientes %>
+              </div>
+              <div class="field">
+              Candidato a Fastrack?
+                <%= f.check_box :candidato_fastrack %>
+              </div>
+              <div class="field">
+              Candidato a Protocolo de Tranexamico?
+                <%= f.check_box :candidato_tranexamico %>
+              </div>
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
 
-<% end %>
-</div>
+            <% end %>
+        </div>
+     </div>
+     </form>
+     </div>
