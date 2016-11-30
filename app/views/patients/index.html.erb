@@ -46,7 +46,7 @@
         <td><%= patient.f_nacimiento%></td>
         <td><%= patient.procedencia%></td>
         <td><%= patient.created_at%></td>
-        <td><%= patient.user_id%></td>
+        <td><%= User.find(patient.user_id).email%></td>
         
       </tr>
     <% end %>

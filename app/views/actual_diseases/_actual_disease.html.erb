@@ -6,7 +6,7 @@
       </h4>
     </li>
     <li>
-       Evaluado por <%= actual_disease.user_id %>
+       Evaluado por <%= User.find(actual_disease.user_id).email%>
     </li>
   </ul>
 

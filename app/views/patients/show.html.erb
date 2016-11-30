@@ -1,3 +1,5 @@
+  <br>
+  <br>
   <ul class="list-inline">
     <li>
       <h2>
@@ -9,7 +11,7 @@
         <p class="text-right"><%= @patient.nombre %> <%= @patient.apellido %></p>
       </h3>
      <li>
-       Ingresado por <%= @patient.user_id %>
+       Ingresado por <%= User.find(@patient.user_id).email%>
 
     </li>
   </ul>
