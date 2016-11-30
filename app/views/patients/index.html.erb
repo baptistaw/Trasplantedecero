@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<br>
+<br>
 
     <%= search_form_for @q do |f| %>
-                <%= f.label :apellido_cont, "Buscar por apellido" %>
+                  <%= f.label :apellido_cont, "Buscar por apellido" %>
                 <%= f.search_field :apellido_cont %>
                 <%= f.label :ci_cont, "Buscar por CI" %>
                 <%= f.search_field :ci_cont %>
                 <%= f.submit('Buscar', class: 'btn btn-primary') %>
     <% end %>
 
+<br>
+<br>
+<div>
+  <% if user_signed_in? %>
+    <%= button_to "Ingresar Paciente nuevo al sistema", new_patient_path, :method => "get", class: 'btn btn-primary' %>
+  <% end %>
+</div>
 
 <h2>Pacientes Ingresados al Sistema</h2>
 
@@ -21,8 +30,8 @@
       <th><%= sort_link(@q, :sexo, "Sexo") %></th>
       <th><%= sort_link(@q, :f_nacimiento, "F Nacimiento") %></th>
       <th><%= sort_link(@q, :procedencia, "Procedencia") %></th>
-      <th><%= sort_link(@q, :created_at, "Fecha Creacion") %></th>
-      <th><%= sort_link(@q, :user_id, "Creado por") %></th>
+      <th><%= sort_link(@q, :created_at, "Fecha Ingreso") %></th>
+      <th><%= sort_link(@q, :user_id, "Ingresado por") %></th>
     </tr>
   </thead>
 
