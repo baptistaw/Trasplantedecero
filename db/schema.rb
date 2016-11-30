@@ -11,7 +11,96 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121150935) do
+ActiveRecord::Schema.define(version: 20161128234111) do
+
+  create_table "actual_diseases", force: :cascade do |t|
+    t.string   "clase_funcional"
+    t.string   "enf_coronaria"
+    t.integer  "hta"
+    t.string   "valvulopatia"
+    t.string   "arritmias_marcapaso"
+    t.string   "fumador"
+    t.string   "epoc"
+    t.string   "asma"
+    t.string   "nefropatia_uropatia"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "patient_id"
+    t.integer  "user_id"
+  end
+
+  create_table "actual_hepatics", force: :cascade do |t|
+    t.string   "s_hepatorrenal"
+    t.string   "s_hepatopulmonar"
+    t.string   "ht_pulmonar"
+    t.string   "ht_portal"
+    t.string   "ascitis"
+    t.string   "esplenomeg"
+    t.string   "varices_esof"
+    t.string   "encefalopatia"
+    t.boolean  "discrasia"
+    t.string   "hiponatremia"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "antecedent_hepatics", force: :cascade do |t|
+    t.boolean  "s_hepatorrenal"
+    t.boolean  "s_hepatopulmonar"
+    t.boolean  "ht_pulmonar"
+    t.boolean  "ht_portal"
+    t.boolean  "ascitis"
+    t.boolean  "esplenomeg"
+    t.boolean  "varices_esof"
+    t.boolean  "encefalopatia"
+    t.boolean  "discrasia"
+    t.boolean  "hiponatremia"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "antecedents", force: :cascade do |t|
+    t.boolean  "enf_coronaria"
+    t.boolean  "hta"
+    t.boolean  "valvulopatia"
+    t.boolean  "arritmias_marcapaso"
+    t.boolean  "fumador"
+    t.boolean  "epoc"
+    t.boolean  "asma"
+    t.boolean  "nefropatia_uropatia"
+    t.boolean  "diabetes"
+    t.boolean  "hipotiroidismo"
+    t.boolean  "hipertiroidismo"
+    t.boolean  "rge_gastritis_ulcus"
+    t.boolean  "alergias"
+    t.boolean  "cirugia_abdominal"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "complementarios_exams", force: :cascade do |t|
+    t.string   "ecg"
+    t.string   "ecocardiograma"
+    t.string   "ecodobutamina"
+    t.string   "ergometria"
+    t.string   "holter"
+    t.string   "rxtx"
+    t.string   "funcional_respiratorio"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "corevaluations", force: :cascade do |t|
     t.string   "causa_hepatopatia"
@@ -32,6 +121,80 @@ ActiveRecord::Schema.define(version: 20161121150935) do
     t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.integer  "patient_id"
+  end
+
+  create_table "examen_fisicos", force: :cascade do |t|
+    t.string   "apertura_bucal"
+    t.string   "mpt"
+    t.string   "protesis"
+    t.string   "cuello"
+    t.integer  "pa_sistolica"
+    t.integer  "pa_diastolica"
+    t.integer  "fc"
+    t.boolean  "soplos"
+    t.string   "pp"
+    t.string   "tiroides"
+    t.string   "reperes_vvc"
+    t.string   "red_venosa"
+    t.string   "test_allen"
+    t.string   "siquismo"
+    t.boolean  "flapping"
+    t.string   "estado_nutricional"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "farmacologico_treatments", force: :cascade do |t|
+    t.boolean  "betabloqueantes"
+    t.boolean  "bloqueantes_calcio"
+    t.boolean  "stringieca"
+    t.boolean  "diureticos"
+    t.boolean  "colesteramina"
+    t.boolean  "omeprazol"
+    t.boolean  "antibioticos"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "laboratory_exams", force: :cascade do |t|
+    t.integer  "hb"
+    t.integer  "hto"
+    t.integer  "plaquetas"
+    t.integer  "gb"
+    t.integer  "tp"
+    t.decimal  "inr"
+    t.integer  "fibrinogeno"
+    t.integer  "aPTT"
+    t.decimal  "glicemia"
+    t.decimal  "azoemia"
+    t.decimal  "creatininemia"
+    t.integer  "na"
+    t.decimal  "k"
+    t.decimal  "albumina"
+    t.decimal  "proteinas_totales"
+    t.integer  "fa"
+    t.integer  "tgo"
+    t.integer  "tgp"
+    t.integer  "bt"
+    t.integer  "bd"
+    t.integer  "bi"
+    t.integer  "amilasemia"
+    t.string   "hiv"
+    t.string   "cmv"
+    t.string   "vdrl"
+    t.decimal  "tsh"
+    t.date     "fecha_ultima_parac"
+    t.text     "comentarios"
+    t.integer  "user_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "models", force: :cascade do |t|

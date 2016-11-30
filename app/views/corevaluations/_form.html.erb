@@ -1,15 +1,12 @@
- <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
+<div class container>      
             <%= form_for ([@patient, @patient.corevaluations.build]) do |f| %>
-              
-                
-              <div class="field">
-              Causa de la Hepatopatía
-               <%= f.text_field :causa_hepatopatia %>
+                            
+              <div>
+              Causa de la Hepatopatia
+                  <%= f.select(:causa_hepatopatia, options_for_select(['Sin aclarar','Alcoholica', 'Autoinmune', 'Cirrosis Biliar Primaria', 'Cirrosis Biliar Secundaria', 'Hepatitis B']), {}, {class: "form-control"}) %>
               </div>
-              <div class="field">
+
+              <div>
               Peso actual
                 <%= f.number_field :peso %>
               </div>
@@ -17,57 +14,87 @@
               Talla
                 <%= f.number_field :talla %>
               </div>
-              <div class="field">
+              <div>
               Pxif
                 <%= f.number_field :pxif %>
               </div>
-              <div class="field">
+              <div>
               MELD
                 <%= f.number_field :meld %>
               </div>
-              <div class="field">
+              <div>
               MELDE
                 <%= f.number_field :melde %>
               </div>
-              <div class="field">
+              <div>
               CHILD
-                  <%= f.select(:child, options_for_select(['A','B', 'C']), {}, {class: "form-control"}) %></div>
+                  <%= f.select(:child, options_for_select(['Sin clasificar','A','B', 'C']), {}, {class: "form-control"}) %>
               </div>
-              <div class="field">
+              <div>
               ASA 
-                 <%= f.select(:asa, options_for_select(['I','II', 'III', 'IV']), {}, {class: "form-control"}) %></div>
+                 <%= f.select(:asa, options_for_select(['I','II', 'III', 'IV']), {}, {class: "form-control"}) %>
               </div>
-              <div class="field">
+              <div>
               Máximos riesgos
                 <%= f.text_area :maximos_riesgos %>
               </div>
-              <div class="field">
-              Ingresa a lista de Trasplante?
+              <div>
+           
                 <%= f.check_box :ingresa_lista %>
+                <input type="checkbox" id="ingresa_lista" />
+                <label for="ingresa_lista">Ingresa a lista de Trasplante?</label>
+
               </div>
-              <div class="field">
+              <div>
               Causa de no ingreso
                 <%= f.text_field :causa_no_ingreso %>
               </div>
-              <div class="field">
+              <div>
               Estudios pendientes para el ingreso
                 <%= f.text_area :estudios_pendientes %>
               </div>
-              <div class="field">
-              Candidato a Fastrack?
-                <%= f.check_box :candidato_fastrack %>
+              <div>
+                <input type="checkbox" id="candidato_fastrack" />
+                <label for="candidato_fastrack">Candidato a Fast Track?</label>
+
               </div>
-              <div class="field">
-              Candidato a Protocolo de Tranexamico?
-                <%= f.check_box :candidato_tranexamico %>
+              <div>
+            
+                <input type="checkbox" id="candidato_tranexamico" />
+                <label for="candidato_tranexamico">Candidato a Protocolo de Tranexamico?</label>
+
               </div>
               <div>
                 <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
                 <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
               </div>
-
             <% end %>
-        </div>
-     </div>
-     </form>
-     </div>
+</div>
+
+ 
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

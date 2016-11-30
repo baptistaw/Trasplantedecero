@@ -1,18 +1,28 @@
+<p id="notice"><%= notice %></p>
 
-<div class="container">
+
+    <%= search_form_for @q do |f| %>
+                <%= f.label :apellido_cont, "Buscar por apellido" %>
+                <%= f.search_field :apellido_cont %>
+                <%= f.label :ci_cont, "Buscar por CI" %>
+                <%= f.search_field :ci_cont %>
+                <%= f.submit('Buscar', class: 'btn btn-primary') %>
+    <% end %>
+
+
 <h2>Pacientes Ingresados al Sistema</h2>
 
-<table class="table">
+<table class="responsive-table", class="striped">
   <thead>
     <tr>
-      <th>Apellido</th>
-      <th>Nombre</th>
-      <th>CI</th>
-      <th>Sexo</th>
-      <th>Fecha Nacimiento</th>
-      <th>Procedencia</th>
-      <th>Anestesista</th>
-      <th colspan="5"></th>
+      <th><%= sort_link(@q, :apellido, "Apellido") %> </th>
+      <th><%= sort_link(@q, :nombre, "Nombre") %></th>
+      <th><%= sort_link(@q, :ci, "CI") %></th>
+      <th><%= sort_link(@q, :sexo, "Sexo") %></th>
+      <th><%= sort_link(@q, :f_nacimiento, "F Nacimiento") %></th>
+      <th><%= sort_link(@q, :procedencia, "Procedencia") %></th>
+      <th><%= sort_link(@q, :created_at, "Fecha Creacion") %></th>
+      <th><%= sort_link(@q, :user_id, "Creado por") %></th>
     </tr>
   </thead>
 
@@ -26,6 +36,7 @@
         <td><%= patient.sexo %></td>
         <td><%= patient.f_nacimiento%></td>
         <td><%= patient.procedencia%></td>
+        <td><%= patient.created_at%></td>
         <td><%= patient.user_id%></td>
         
       </tr>

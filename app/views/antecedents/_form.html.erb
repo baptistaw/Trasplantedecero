@@ -1,0 +1,90 @@
+
+
+<div class container> 
+
+      <%= form_for ([@patient, @patient.antecedents.build]) do |f| %>
+
+
+    <%= f.check_box :enf_coronaria %>
+    <input type="checkbox" id="enf_coronaria" />
+    <label for="enf_coronaria">Enfermedad coronaria</label>
+
+    <%= f.check_box :hta %>
+    <input type="checkbox" id="hta" />
+    <label for="hta">HTA</label>
+    <%= f.check_box :valvulopatia %>
+    <input type="checkbox" id="valvulopatia" />
+    <label for="valvulopatia">Valvulopatia</label>
+    <%= f.check_box :arritmias_marcapaso %>
+    <input type="checkbox" id="arritmias_marcapaso" />
+    <label for="arritmias_marcapaso">Arritmias/Marcapaso</label>
+    <%= f.check_box :fumador %>
+    <input type="checkbox" id="fumador" />
+    <label for="fumador">Fumador</label>
+    <%= f.check_box :epoc %>
+    <input type="checkbox" id="epoc" />
+    <label for="epoc">EPOC</label>
+    <%= f.check_box :asma %>
+    <input type="checkbox" id="asma" />
+    <label for="asma">Asma</label>
+    <%= f.check_box :nefropatia_uropatia %>
+    <input type="checkbox" id="nefropatia_uropatia" />
+    <label for="nefropatia_uropatia">Nefropatia/Uropatia</label>
+    <%= f.check_box :diabetes %>
+    <input type="checkbox" id="diabetes" />
+    <label for="diabetes">Diabetes</label>
+    <%= f.check_box :hipotiroidismo %>
+    <input type="checkbox" id="hipotiroidismo" />
+    <label for="hipotiroidismo">Hipotiroidismo</label>
+    <%= f.check_box :hipertiroidismo %>
+    <input type="checkbox" id="hipertiroidismo" />
+    <label for="hipertiroidismo">Hipertiroidismo</label>
+    <%= f.check_box :rge_gastritis_ulcus %>
+    <input type="checkbox" id="rge_gastritis_ulcus" />
+    <label for="rge_gastritis_ulcus">RGE/Gastritis/Ulcus</label>
+    <%= f.check_box :alergias %>
+    <input type="checkbox" id="alergias" />
+    <label for="alergias">Alergias</label>
+    <%= f.check_box :cirugia_abdominal %>
+    <input type="checkbox" id="cirugia_abdominal" />
+    <label for="cirugia_abdominal">Cirugía Abdominal previa</label>
+
+  <div class="field">
+    <%= f.label 'Comentarios' %><br>
+    <%= f.text_area :comentarios %>
+  </div>
+  <div>
+    <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+    <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+  </div>
+
+  <% end %>
+
+ </div>
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

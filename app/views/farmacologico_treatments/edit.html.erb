@@ -1,0 +1,53 @@
+<div class="col-md-6 col-md-offset-3">
+
+<h1>Editar Tratamiento Farmacológico</h1>
+
+<%= simple_form_for ([@patient, @farmacologico_treatment]) do |f| %>
+  
+
+    
+
+
+    <%= f.input :betabloqueantes %>
+    <%= f.input :bloqueantes_calcio %>
+    <%= f.input :stringieca %>
+    <%= f.input :diureticos %>
+    <%= f.input :colesteramina %>
+    <%= f.input :omeprazol %>
+    <%= f.input :antibioticos %>
+    <%= f.input :comentarios %>
+
+    <div>
+        <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+        <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+    </div>
+
+<% end %>
+
+
+</div>
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

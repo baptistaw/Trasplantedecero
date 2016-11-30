@@ -1,0 +1,72 @@
+  <div class container>  
+            <%= form_for ([@patient, @patient.farmacologico_treatments.build]) do |f| %>
+                            
+      <div>
+        <input type="checkbox" id="betabloqueantes" />
+        <label for="betabloqueantes">Betabloqueantes</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="bloqueantes_calcio" />
+        <label for="bloqueantes_calcio">Calcio antagonistas</label>
+      </div>
+      <div>
+        <input type="checkbox" id="stringieca" />
+        <label for="stringieca">IECA</label>
+      </div>
+      <div>
+        <input type="checkbox" id="diureticos" />
+        <label for="diureticos">Diureticos</label>
+      </div>
+      <div>
+        <input type="checkbox" id="colesteramina" />
+        <label for="colesteramina">Colesteramina</label>
+      </div>
+      <div>
+        <input type="checkbox" id="omeprazol" />
+        <label for="omeprazol">Omeprazol</label>
+      </div>
+      <div>
+        <input type="checkbox" id="antibioticos" />
+        <label for="antibioticos">ATB</label>
+      </div>
+
+      <div class="field">
+        <%= f.label 'Comentarios' %><br>
+        <%= f.text_area :comentarios %>
+      </div>
+
+
+              <div>
+                <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+                <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+              </div>
+            <% end %>
+
+ </div>
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

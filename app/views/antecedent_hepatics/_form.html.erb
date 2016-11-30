@@ -1,0 +1,90 @@
+  <div class container> 
+
+    
+  <%= form_for ([@patient, @patient.antecedent_hepatics.build]) do |f| %>
+                            
+           
+  <div class="field">
+    <%= f.label 'Sindrome Hepatorrenal' %><br>
+    <%= f.check_box :s_hepatorrenal %>
+  </div>
+
+    <div class="field">
+    <%= f.label 'Sind Hepatorrenal' %><br>
+    <%= f.check_box :s_hepatorrenal %>
+  </div>
+  <div class="field">
+    <%= f.label 'Sind Hepatopulmonar' %><br>
+    <%= f.check_box :s_hepatopulmonar %>
+  </div>
+  <div class="field">
+    <%= f.label 'HT Pulmonar'%><br>
+    <%= f.check_box :ht_pulmonar %>
+  </div>
+  <div class="field">
+    <%= f.label 'HT Portal' %><br>
+    <%= f.check_box :ht_portal %>
+  </div>
+  <div class="field">
+    <%= f.label 'Ascitis' %><br>
+    <%= f.check_box :ascitis %>
+  </div>
+  <div class="field">
+    <%= f.label 'Esplenomegalia' %><br>
+    <%= f.check_box :esplenomeg %>
+  </div>
+  <div class="field">
+    <%= f.label 'Varices Esofágicas' %><br>
+    <%= f.check_box :varices_esof %>
+  </div>
+  <div class="field">
+    <%= f.label 'Encefalopatia' %><br>
+    <%= f.check_box :encefalopatia %>
+  </div>
+  <div class="field">
+    <%= f.label 'Discrasia' %><br>
+    <%= f.check_box :discrasia %>
+  </div>
+  <div class="field">
+    <%= f.label 'Hiponatremia' %><br>
+    <%= f.check_box :hiponatremia %>
+  </div>
+  	<div>
+	   	Comentarios
+	    <%= f.text_area(:comentarios, class: "form-control", placeholder: "Notas") %>
+    </div>
+
+    <div>
+	    <%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+	    <%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+
+ </div>
+
+
+<script scr="js/jquery.min.js">
+</script>
+<script scr="js/materialize.min.js">
+</script>
+
+<script>
+  $(document).ready(function() {
+    Materialize.updateTextFields();
+  });
+</script>
+
+<script>
+$('#textarea1').val('New Text');
+</script>
+
+<script>
+$('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 90 // Creates a dropdown of 15 years to control year
+  });
+</script>

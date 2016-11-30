@@ -1,4 +1,3 @@
-<div class="container">
   <ul class="list-inline">
     <li>
       <h2>
@@ -61,6 +60,7 @@
       
       <%= link_to "Editar", edit_patient_path(@patient), class: 'btn btn-warning' %>
       <%= link_to "Eliminar", patient_path(@patient), method: :delete, data: {confirm: "Esta seguro?"}, class: 'btn btn-danger' %>
+      <%= link_to "Atras", patient_path, class: 'btn btn-warning' %>
     <% end %>
   <% end %>
 </div>
@@ -68,20 +68,106 @@
 
   <ul class="collapsible popout" data-collapsible="accordion">
     <li>
+      
       <div class="collapsible-header"><i class="material-icons"></i>Datos Generales</div>
+      
       <div class="collapsible-body">
-       <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
-         <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
-          <%= render @patient.corevaluations %></div>
+        <%= link_to "Ingresar datos generales", new_patient_corevaluation_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.corevaluations %>
+      </div>
+
+    </li>
+    
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes Personales generales</div>
+      
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Antecedentes Personales generales", new_patient_antecedent_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedents %>
+
+      </div>
+    
+    </li>
+    
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Antecedentes de la Enfermedad Hepatica</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Antecedentes de la Enfermedad Hepatica", new_patient_antecedent_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.antecedent_hepatics %>
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Actual datos generales</div>
+      <div class="collapsible-body">
+        <%= link_to "Ingresar datos generales de la Enfermedad Actual", new_patient_actual_disease_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_diseases %>
+
+      </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons"></i>xxxx</div>
-      <div class="collapsible-body"><p>texto</p></div>
+      <div class="collapsible-header"><i class="material-icons"></i>Enfermedad Hepatica Actual</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar datos de la Enfermedad Hepatica actual", new_patient_actual_hepatic_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.actual_hepatics %>
+
+      </div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons"></i>xxxxx</div>
-      <div class="collapsible-body"><p>texto</p></div>
+      <div class="collapsible-header"><i class="material-icons"></i>Examen Fisico</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar dados del Examen Fisico", new_patient_examen_fisico_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.examen_fisicos %>
+
+      </div>
     </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Tratamiento Farmacologico</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Tratamiento Farmacologico actual", new_patient_farmacologico_treatment_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.farmacologico_treatments %>
+
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Examenes de Laboratorio</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Examens de Laboratorio", new_patient_laboratory_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.laboratory_exams %>
+
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons"></i>Examenes Complementarios de valoracion</div>
+      <div class="collapsible-body">
+
+        <%= link_to "Ingresar Examenes Comlementarios", new_patient_complementarios_exam_path(@patient), class: 'btn btn-warning' %>
+        <%= link_to "Cerrar", patient_path(@patient), class: 'btn btn-info' %>
+        <%= render @patient.complementarios_exams %>
+
+      </div>
+    </li>
+
   </ul>
 
 <script>
@@ -97,7 +183,7 @@
     }
 </script>
 
-  );
+
         
         
 

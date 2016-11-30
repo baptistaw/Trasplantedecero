@@ -1,0 +1,28 @@
+<div class="col-md-6 col-md-offset-3">
+
+<h1>Editar Antecedentes de la Enfermedad Hepatica</h1>
+
+<%= simple_form_for ([@patient, @antecedent_hepatic]) do |f| %>
+  
+    
+	
+    <%= f.input :s_hepatorrenal %>
+	<%= f.input :s_hepatopulmonar %>
+    <%= f.input :ht_pulmonar %>
+    <%= f.input :ht_portal %>
+    <%= f.input :ascitis %>
+    <%= f.input :esplenomeg %>
+    <%= f.input :varices_esof %>
+    <%= f.input :encefalopatia %>
+    <%= f.input :discrasia %>
+    <%= f.input :hiponatremia %>
+    <%= f.input :comentarios %>
+  
+	<div>
+		<%= f.submit('Confirmar', class: 'btn btn-primary') %>|
+		<%= link_to 'Atras', patients_path, class: 'btn btn-default' %>
+	</div>
+
+<% end %>
+
+</div>

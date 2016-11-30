@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+ 
+
+
   devise_for :users
-  resources :patients do
-  	resources :corevaluations
+    resources :patients do
+      	resources :corevaluations
+        resources :actual_diseases
+        resources :actual_hepatics
+        resources :antecedent_hepatics
+        resources :antecedents
+        resources :complementarios_exams
+        resources :examen_fisicos
+        resources :farmacologico_treatments
+        resources :laboratory_exams
+        
   end
 
+
+  
   get 'static_pages/protocolos', to: "static_pages#protocolos"
 
   get 'static_pages/home', to: "static_pages#about"
@@ -16,7 +30,7 @@ Rails.application.routes.draw do
 
   get 'patients/new', to: "patients#new"
 
-
+ 
 
   root to: "static_pages#home"
 

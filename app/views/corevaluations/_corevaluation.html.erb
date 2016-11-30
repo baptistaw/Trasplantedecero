@@ -1,4 +1,4 @@
-<div class="container">
+
   <ul class="list-inline">
     <li>
       <h4>
@@ -19,7 +19,6 @@
       <th>Meld:</th>
       <th>Melde:</th>
       <th>Child:</th>
-      <th>Asa:</th>
     </tr>
     </thead>
     <tbody>
@@ -29,29 +28,42 @@
         <td><%= corevaluation.meld %></td>
         <td> <%= corevaluation.melde %></td>
         <td><%= corevaluation.child %></td>
-        <td><%= corevaluation.asa %></td>
        </tr>
     </tbody>
    <thead>
     <tr>
+      <th>Asa:</th>
      <th>Maximos riesgos:</th>
      <th>Ingresa lista:</th>
      <th>Causa no ingreso</th>
      <th>Estudios pendietes ingreso:</th>
-     <th>Candidato fastrack:</th>
-     <th>Candidato tranexamico:</th>
     </tr>
     </thead>
     <tbody>
       <tr>
+        <td><%= corevaluation.asa %></td>
         <td> <%= corevaluation.maximos_riesgos %></td>
         <td> <%= corevaluation.ingresa_lista %></td>
         <td><%= corevaluation.causa_no_ingreso %></td>
         <td><%= corevaluation.estudios_pendientes %></td>
+      </tr>
+    </tbody>
+
+    <thead>
+    <tr>
+     <th>Candidato fastrack:</th>
+     <th>Candidato tranexamico:</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+      <tr>
         <td><%= corevaluation.candidato_fastrack %></td>
         <td><%= corevaluation.candidato_tranexamico %></td>
       </tr>
     </tbody>
+
   </table>
 
 

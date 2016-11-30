@@ -4,8 +4,10 @@ before_action :find_patient, only: [:show, :edit, :update, :destroy]
 
 
 	def index
-		@patients = Patient.all.order("created_at DESC")
-	end
+		@q = Patient.ransack(params[:q].try(:merge, m: 'or'))
+		@patients = @q.result
+			#@patients = Patient.all.order("created_at DESC")
+    end
 
 	def show
 	
@@ -45,7 +47,6 @@ before_action :find_patient, only: [:show, :edit, :update, :destroy]
 		redirect_to root_path
 
 	end
-
 
 
 	private
